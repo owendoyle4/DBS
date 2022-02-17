@@ -12,12 +12,6 @@ load('events_labeled')
 move_temp = load(strcat('move_', patient_id, '_temp.mat'));
 move_temp = move_temp.(strcat("move_", patient_id, "_temp"));
 
-% cd('/Users/owen/Box/DBS_data/sdata_files/')
-% 
-% load('move_t_dict_12-14')
-% lpf = load(append('data_lpf'))
-% all(lpf.data==data)
-
 
 %%
 num_blocks = length(SDATA.events.event_names);
@@ -89,8 +83,6 @@ sgtitle(patient_id);
 
 disp(patient_id)
 for block = 1:num_blocks
-%     %only look at bimanual blocks
-%     if move_temp(block, 1) == 2
     b_name = 'b'+string(block);
 
     start  = move_temp(block, 2);
@@ -116,7 +108,6 @@ for block = 1:num_blocks
     data_sections.(b_name).corrs = corrs;
 
     subplot(num_blocks/3, 3, block)
-%     axis([0,30, -1, 1])
     plot(corrs);
     yline(nanmean(corrs));
 
@@ -126,8 +117,6 @@ for block = 1:num_blocks
     end
     ylim([ -1, 1]);
     title(b_name);
-
-%     end
 end
 
 disp('---------')
@@ -173,9 +162,6 @@ end
 %normal block
 start = SDATA.events.event_times(5,3);
 stop =  SDATA.events.event_times(5,4);
- 
-% start = 127500; 
-% stop = SDATA.events.event_times(2,4);
 
 block = 2;
 
