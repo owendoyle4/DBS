@@ -7,7 +7,6 @@
 import numpy as np
 import h5py
 import matplotlib.pyplot as plt
-from scipy.stats.stats import pearsonr
 from scipy.stats import zscore
 import os
 from scipy import io
