@@ -1,8 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
+# author: Owen Doyle
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -123,7 +119,6 @@ contra_R2s
 # # ECoG Plots
 
 # In[8]:
-
 
 #plots
 plt.figure(0)
@@ -287,7 +282,6 @@ ipsi_improvements_vd   = [i*np.ones(4) for i in ipsi_improvements]
 
 # In[80]:
 
-
 #scatterplots
 plt.figure(0)
 plt.scatter(contra_R2s,contra_improvements_vd)
@@ -301,12 +295,5 @@ plt.title("{} {} Ipsi R2 and Ipsi Behavioral Change in Baseline".format(uniorbi,
 plt.xlabel("{} {} Ipsi R2".format(uniorbi,elec))
 plt.ylabel("Change from Baseline in last session (s)")
 
-# print "contra R2: ", pearsonr(contra_R2s,contra_improvements)[0]
-# print "ipsi R2: ",pearsonr(ipsi_R2s,contra_improvements)[0]
-
-
-# In[ ]:
-
-
-
-
+print "contra R2: ", pearsonr(contra_R2s,contra_improvements)[0]
+print "ipsi R2: ",pearsonr(ipsi_R2s,contra_improvements)[0]
