@@ -1,9 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
+# author: Owen Doyle
 
 # In[2]:
-
-
 import numpy as np
 import h5py
 import matplotlib.pyplot as plt
@@ -74,9 +71,6 @@ def cpickle_dump(flname, datadict):
     fl.close()
     return
 
-# # os.chdir('C:\Users\natal\Box\DBS_data\sdata_files\BI020')
-# ls #what is in this folder
-
 # # alg2 - 10Hz LPF
 
 
@@ -84,11 +78,10 @@ def cpickle_dump(flname, datadict):
 
 
 # load the data (emg and neural data)
-# preprocessed w/ organized_dbs_data_11_03_20.m 
 #######################################################################################
 pat = 41 #CHOOSE PATIENT NUMBER
 # type_emg = 'flex' #fdi or flex
-filename = '10hz' #add
+filename = '10hz'
 ########################################################################################
 
 # SDATA.data
@@ -134,7 +127,6 @@ lmp = dbs_lmp
 
 
 # using move times
-# filepath = r'C:\Users\natal\Box\DBS_data\sdata_files\BI0{}\move_BI0{}_temp.mat'.format(pat,pat)
 filepath =    r'/Users/owen/Box/DBS_data/sdata_files/BI0{}/move_BI0{}_temp.mat'.format(pat,pat)
 print filepath
 test = {}
@@ -269,8 +261,6 @@ for block in range(len(move_indicies)):
     if move_indicies[block,0] == 2: #if block is bimanual
         block_start = move_indicies[block,1]
         block_end   = move_indicies[block,2]
-#         elec_temp = contra_lags[499,block_start:block_end]
-#         elec_temp = ipsi_lags[499,block_start:block_end]
 
         hand = 0
         for elec_temp in [contra_lags, ipsi_lags]:
@@ -350,7 +340,3 @@ corr_contra = np.squeeze(corr_contra)
 
 
 # In[ ]:
-
-
-
-
