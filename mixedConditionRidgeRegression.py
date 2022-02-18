@@ -1,7 +1,8 @@
-#######################################################################################
-# NOTE: Credit to Dr. Christina Merrick for the the orginal ridge regression code.    #
-# This is my adaptation to train and test accross different experimental conditions.  #
-#######################################################################################
+###################################################################################################
+# NOTE: Credit to Dr. Christina Merrick for the the orginal ridge regression code.                #
+# This is my (Owen Doyle adaptation to train and test accross different experimental conditions.  #
+###################################################################################################
+
 import numpy as np
 import h5py
 from scipy.stats.stats import pearsonr
