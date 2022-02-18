@@ -1,8 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
+# author: Owen Doyle
 
 import scipy.io
 import numpy as np
@@ -183,7 +179,3 @@ cpickle_dump('rsq_elec', rsq_elec)
 
 
 # In[ ]:
-
-
-
-
