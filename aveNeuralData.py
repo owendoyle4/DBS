@@ -257,10 +257,11 @@ def make_trial_avg(trials):
 
 # In[10]:
 
+# patient IDs
+uni_pats = [25, 35, 38] 
+bi_pats  = [20, 25, 33, 40]
+all_pats = [20, 25, 29, 31, 33, 35, 38, 40]
 
-uni_pats = [25, 35, 38] #CAN INCLUDE 41 ONCE ELEC LABELS ARE IN
-bi_pats  = [20, 25, 33, 40] #CAN INCLUDE 41 ONCE ELEC LABELS ARE IN
-all_pats = [20, 25, 29, 31, 33, 35, 38, 40] #not using 39 or 41 yet
 #enter parameters
 pats    = all_pats
 window  = 200
@@ -286,7 +287,6 @@ print "for each patient: ", peaks[pats[0]].keys()
 print "contra: ", peaks[pats[0]]['contra'].shape
 print '----------------------------------------------------'
 print
-print
 print '----------------------------------------------------'
 print "'trials' information (same for uni and bi)"
 print "patient list: ",uni_trials.keys()
@@ -294,14 +294,12 @@ print "for each patient: ", uni_trials[pats[0]].keys()
 print "contra: ", uni_trials[pats[0]]['contra'].shape
 print '----------------------------------------------------'
 print 
-print
 print '----------------------------------------------------'
 print "'pat_avgs' information (same for uni and bi)"
 print "patient list: ",uni_pat_avgs.keys()
 print "for each patient: ", uni_pat_avgs[pats[0]].keys()
 print "contra: ", uni_pat_avgs[pats[0]]['contra'].shape
 print '----------------------------------------------------'
-print
 print
 print '----------------------------------------------------'
 print "'elec_avgs' information (same for uni and bi)"
@@ -531,13 +529,11 @@ hand_idx = cond_idx #because this is only unimanual
 #choose the test sets
 if gen_quality == 'well':
     #use the best looking test set (most highly correlated) for both the regular and generalized timeseries
-#     reg_test_set =testset_num
     reg_test_set = np.argmax(reg_dict['cc_test'][hand_idx, cond_idx,:, elec])
     gen_test_set = np.argmax(gen_dict['cc_test_gen'][:,elec])
 
 elif gen_quality == 'poorly':
     #use the best looking test set (most highly correlated) for the regular timeseries and 
-#     reg_test_set =testset_num
     reg_test_set = np.argmax(reg_dict['cc_test'][hand_idx, cond_idx,:, elec])
     #use the worst test set for generalized timeseries
     gen_test_set = np.argmin(gen_dict['cc_test_gen'][:,elec])
@@ -700,10 +696,3 @@ print "Generalized R^2: ", pearsonr(predicted_gen[:],heldout_gen)[0]**2
 
 fig.set_size_inches(12,5)
 fig.tight_layout()
-
-
-# In[ ]:
-
-
-
-
