@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 #######################################################################################
 # NOTE: Credit to Dr. Christina Merrick for the the orginal ridge regression code.    #
 # This is my adaptation to train and test accross different experimental conditions.  #
@@ -72,26 +66,6 @@ def cpickle_dump(flname, datadict):
     cPickle.dump(datadict, fl)
     fl.close()
     return
-
-
-# In[2]:
-
-
-# #######################################################################################
-# pat = 31 #CHOOSE PATIENT NUMBER
-# type_emg = 'flex'
-# data_filename = '10hz' #add
-# name_end = 'move'
-# ########################################################################################
-# train_cond ='contra'
-# #condition######################################################################
-# # train_cond = 0 # c:0 or i:1  # CHANGE THIS TO IPSI OR CONTRA 
-# ####################################################################################
-
-# # train_hand = train_cond
-
-
-# In[3]:
 
 
 def train_uni1_test_uni2(train_cond, pat, data_filename, type_emg, name_end):
@@ -246,19 +220,14 @@ def train_uni1_test_uni2(train_cond, pat, data_filename, type_emg, name_end):
     return cc_test_gen, prediction_test_gen, neural_test_gen
 
 
-# In[4]:
-
 
 # ID_list = [20,25,29,35,39,40,41,99] #FDI 
 ID_list = [31,32,33,37,38,39,40] #Flex
 
-data_filename0 = '10Hz' #data_filename to load
-type_emg0 = 'flex' #MAKE SURE THE LIST YOU INSERT IS THE SAME EMG TYPE
+data_filename0 = '10Hz'
+type_emg0 = 'flex'
 name_end0 = 'move'
 print data_filename0 , type_emg0, name_end0
-
-
-# In[5]:
 
 
 for train_condition in ['contra', 'ipsi']:
@@ -274,8 +243,7 @@ for train_condition in ['contra', 'ipsi']:
         uni_uni_dict = {}
         uni_uni_dict = {'cc_test_gen':cc_test_gen, 'prediction_test_gen':prediction_test_gen, 'neural_test_gen':neural_test_gen}
 
-        ########################################################################################333
-        uni_uni_file_name = 'BI0{}_{}_{}_{}'.format(pat_id, name, train_condition, type_emg0 ) ##########################################################3
+        uni_uni_file_name = 'BI0{}_{}_{}_{}'.format(pat_id, name, train_condition, type_emg0 )
         print uni_uni_file_name
         cpickle_dump(uni_uni_file_name, uni_uni_dict)
     
